@@ -302,7 +302,7 @@ class GenericAdaptiveTrackProjectionContext
      * @param incomingPacketCache the packet cache to pull piggy-backed
      * packets from. It can be left null because piggybacking is not
      * implemented.
-     * @return {@link #EMPTY_PACKET_ARR}
+     * @return null
      */
     @Override
     public VideoRtpPacket[] rewriteRtp(
@@ -334,7 +334,7 @@ class GenericAdaptiveTrackProjectionContext
                 + ",max_sequence=" + maxDestinationSequenceNumber);
         }
 
-        return EMPTY_PACKET_ARR;
+        return null;
     }
 
     /**

@@ -31,8 +31,6 @@ import org.json.simple.*;
 import java.util.*;
 import java.util.concurrent.*;
 
-import static org.jitsi.videobridge.cc.AdaptiveTrackProjection.EMPTY_PACKET_ARR;
-
 /**
  * The {@link BitrateController} is attached to a destination {@link
  * Endpoint} and its purpose is 1st to selectively drop incoming packets
@@ -1239,7 +1237,7 @@ public class BitrateController
 
         if (adaptiveTrackProjection == null)
         {
-            return EMPTY_PACKET_ARR;
+            return null;
         }
 
         try
@@ -1260,7 +1258,7 @@ public class BitrateController
                 }
             }
 
-            if (extras.length > 0)
+            if (!ArrayUtils.isNullOrEmpty(extras))
             {
                 VideoRtpPacket[] allPackets
                         = new VideoRtpPacket[extras.length + 1];
@@ -1275,7 +1273,7 @@ public class BitrateController
         }
         catch (RewriteException e)
         {
-            return EMPTY_PACKET_ARR;
+            return null;
         }
     }
 
