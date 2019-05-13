@@ -281,6 +281,11 @@ public class ChannelShim
                                 secondarySsrc,
                                 ssrcAssociationType);
                 }
+
+                if (ssrcAssociationType == SsrcAssociationType.RTX)
+                {
+                    endpoint.setSupportsRTX(true);
+                }
             });
         }
     }
